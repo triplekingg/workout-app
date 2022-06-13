@@ -90,8 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Thumbnail(
-                        'https://images.unsplash.com/photo-1616803689943-5601631c7fec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'),
+                    Thumbnail('assets/images/bodyweight.jpg', 'Body Weight',
+                        '30m | High Intensity | Indoor/Outdoor'),
                   ]),
             )
           ],
