@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:workout/searchbar.dart';
+import 'package:workout/thumbnail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -68,59 +70,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.transparent,
                   elevation: 0,
                   child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 4,
-                            color: Color(0x430F1113),
-                            offset: Offset(0, 2),
-                          )
-                        ],
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
-                        child: TextFormField(
-                          controller: searchFieldController,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: 'Type to search here...',
-                            hintStyle: TextStyle(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF95A1AC),
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFF1F4F8),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFF1F4F8),
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.search_rounded,
-                              color: Color(0xFF95A1AC),
-                            ),
-                          ),
-                          style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF090F13),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      )))
+                    width: MediaQuery.of(context).size.width,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4,
+                          color: Color(0x430F1113),
+                          offset: Offset(0, 2),
+                        )
+                      ],
+                    ),
+                    child: SearchBar(searchFieldController),
+                  ))
             ]),
+            Expanded(
+              child: ListView(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Thumbnail(
+                        'https://images.unsplash.com/photo-1616803689943-5601631c7fec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'),
+                  ]),
+            )
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
