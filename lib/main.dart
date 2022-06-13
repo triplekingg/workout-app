@@ -92,6 +92,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Thumbnail('assets/images/bodyweight.jpg', 'Body Weight',
                         '30m | High Intensity | Indoor/Outdoor'),
+                    Thumbnail(
+                        'assets/images/weight-training.jpg',
+                        'Weight Training',
+                        '30m | High Intensity | Indoor/Outdoor'),
+                    Thumbnail('assets/images/abs.jpg', 'Abs Training',
+                        '30m | High Intensity | Indoor/Outdoor'),
+                    Thumbnail(
+                        'assets/images/strength-weight.jpg',
+                        'Strength and Weight Training',
+                        '30m | High Intensity | Indoor/Outdoor'),
                   ]),
             )
           ],
