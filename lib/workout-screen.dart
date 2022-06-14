@@ -4,13 +4,18 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutScreen extends StatefulWidget {
-  const WorkoutScreen({Key? key}) : super(key: key);
+  String url;
+  String title;
+  WorkoutScreen(this.url, this.title);
 
   @override
-  State<WorkoutScreen> createState() => WorkoutScreenState();
+  State<WorkoutScreen> createState() => WorkoutScreenState(url, title);
 }
 
 class WorkoutScreenState extends State<WorkoutScreen> {
+  String url;
+  String title;
+  WorkoutScreenState(this.url, this.title);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,7 @@ class WorkoutScreenState extends State<WorkoutScreen> {
                   size: 32,
                 ))),
         title: Text(
-          'Class Details',
+          title,
           style: TextStyle(
               fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
@@ -43,7 +48,7 @@ class WorkoutScreenState extends State<WorkoutScreen> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Image.asset(
-                  'assets/images/bodyweight.jpg',
+                  url,
                   width: MediaQuery.of(context).size.width,
                   height: 230,
                   fit: BoxFit.cover,

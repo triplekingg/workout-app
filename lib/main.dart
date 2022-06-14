@@ -105,16 +105,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         '30m | High Intensity | Indoor/Outdoor'),
                   ]),
             ),
-            Column(
-              children: [
-                ElevatedButton(
-                    onPressed: (() => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WorkoutScreen()))),
-                    child: Text('Next'))
-              ],
-            )
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
