@@ -4,8 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:workout/customCheckBox.dart';
-import 'package:workout/db/checkbox_database.dart';
-import 'package:workout/model/mycheckbox.dart';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,43 +12,20 @@ main() {
 class WorkoutScreen extends StatefulWidget {
   String url;
   String title;
-  WorkoutScreen(this.url, this.title);
+  List<CustomCheckBox> customCheckBoxes;
+  WorkoutScreen(this.url, this.title, this.customCheckBoxes);
 
   @override
-  State<WorkoutScreen> createState() => WorkoutScreenState(url, title);
+  State<WorkoutScreen> createState() =>
+      WorkoutScreenState(url, title, customCheckBoxes);
 }
 
 class WorkoutScreenState extends State<WorkoutScreen> {
   String url;
   String title;
-  WorkoutScreenState(this.url, this.title);
+  List<CustomCheckBox> customCheckBoxes;
+  WorkoutScreenState(this.url, this.title, this.customCheckBoxes);
   bool isChecked = false;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _loadCounter();
-  // }
-
-  // Future<void> _loadCounter() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     isChecked = (prefs.getBool('value') ?? false);
-  //   });
-  // }
-
-  // Future<void> changeState() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   if (isChecked == true) {
-  //     setState(() {
-  //       prefs.setBool('value', true);
-  //     });
-  //   } else {
-  //     setState(() {
-  //       prefs.setBool('value', false);
-  //     });
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -126,9 +101,7 @@ class WorkoutScreenState extends State<WorkoutScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 children: [
-                  CustomCheckBox(isChecked, 'hi', 'val_hi'),
-                  CustomCheckBox(isChecked, 'hello', 'val_hello'),
-
+                  for (var i in customCheckBoxes) i
                   // CheckboxListTile(
                   //   title: Text('Blah'),
                   //   value: isChecked,

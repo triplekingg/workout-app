@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout/customCheckBox.dart';
 import 'package:workout/searchbar.dart';
 import 'package:workout/thumbnail.dart';
 import 'package:workout/workout-screen.dart';
@@ -35,6 +36,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   TextEditingController searchFieldController = TextEditingController();
+  List<CustomCheckBox> customCheckBoxes = [
+    CustomCheckBox(false, 'hiii', 'hiii'),
+    CustomCheckBox(false, 'hhunji', 'hunji')
+  ];
 
   @override
   // void initState() {
@@ -91,18 +96,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Thumbnail('assets/images/bodyweight.jpg', 'Body Weight',
-                        '30m | High Intensity | Indoor/Outdoor'),
+                    Thumbnail(
+                        'assets/images/bodyweight.jpg',
+                        'Body Weight',
+                        '30m | High Intensity | Indoor/Outdoor',
+                        customCheckBoxes),
                     Thumbnail(
                         'assets/images/weight-training.jpg',
                         'Weight Training',
-                        '30m | High Intensity | Indoor/Outdoor'),
-                    Thumbnail('assets/images/abs.jpg', 'Abs Training',
-                        '30m | High Intensity | Indoor/Outdoor'),
+                        '30m | High Intensity | Indoor/Outdoor',
+                        customCheckBoxes),
+                    Thumbnail(
+                        'assets/images/abs.jpg',
+                        'Abs Training',
+                        '30m | High Intensity | Indoor/Outdoor',
+                        customCheckBoxes),
                     Thumbnail(
                         'assets/images/strength-weight.jpg',
                         'Strength and Weight Training',
-                        '30m | High Intensity | Indoor/Outdoor'),
+                        '30m | High Intensity | Indoor/Outdoor',
+                        customCheckBoxes),
                   ]),
             ),
           ],

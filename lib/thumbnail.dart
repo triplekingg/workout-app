@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:workout/customCheckBox.dart';
 import 'package:workout/workout-screen.dart';
 
 class Thumbnail extends StatelessWidget {
   String url;
   String title;
   String description;
+  List<CustomCheckBox> checkboxes;
 
-  Thumbnail(this.url, this.title, this.description);
+  Thumbnail(this.url, this.title, this.description, this.checkboxes);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,11 @@ class Thumbnail extends StatelessWidget {
         // style: ElevatedButton.styleFrom(
         //   primary: Colors.white, // Background color
         // ),
-        onTap: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => WorkoutScreen(url, title))),
+        onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    WorkoutScreen(url, title, this.checkboxes))),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 20),
           child: Container(
