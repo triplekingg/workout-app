@@ -7,8 +7,10 @@ class Thumbnail extends StatelessWidget {
   String title;
   String description;
   List<CustomCheckBox> checkboxes;
+  List<Image> images;
 
-  Thumbnail(this.url, this.title, this.description, this.checkboxes);
+  Thumbnail(
+      this.url, this.title, this.description, this.checkboxes, this.images);
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +18,11 @@ class Thumbnail extends StatelessWidget {
         borderRadius: BorderRadius.circular(1.0),
         splashColor: Color.fromARGB(255, 150, 148, 148),
         splashFactory: InkRipple.splashFactory,
-        // style: ElevatedButton.styleFrom(
-        //   primary: Colors.white, // Background color
-        // ),
         onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    WorkoutScreen(url, title, this.checkboxes))),
+                    WorkoutScreen(url, title, this.checkboxes, this.images))),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 20),
           child: Container(
@@ -97,44 +96,6 @@ class Thumbnail extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 16),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            // ElevatedButton(
-                            //   onPressed: () {
-                            //     print('Button-Reserve pressed ...');
-                            //   },
-                            //   text: 'Begin',
-                            //   icon: Icon(
-                            //     Icons.add_rounded,
-                            //     color: Colors.white,
-                            //     size: 15,
-                            //   ),
-                            //   options: FFButtonOptions(
-                            //     width: 120,
-                            //     height: 40,
-                            //     color: Color(0xFF39D2C0),
-                            //     textStyle: GoogleFonts.getFont(
-                            //       'Lexend Deca',
-                            //       color: Colors.white,
-                            //       fontSize: 14,
-                            //     ),
-                            //     elevation: 3,
-                            //     borderSide: BorderSide(
-                            //       color: Colors.transparent,
-                            //       width: 1,
-                            //     ),
-                            //     borderRadius: 8,
-                            //   ),
-                            // ),
-                          ],
-                        ),
                       ),
                     ),
                   ],

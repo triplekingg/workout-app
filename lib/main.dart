@@ -4,6 +4,7 @@ import 'package:workout/searchbar.dart';
 import 'package:workout/thumbnail.dart';
 import 'package:workout/workout-screen.dart';
 import 'lists_of_checkboxes.dart';
+import 'lists_of_images.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,12 +38,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   TextEditingController searchFieldController = TextEditingController();
-
-  @override
-  // void initState() {
-  //   super.initState();
-  //   var searchFieldController = TextEditingController();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -93,17 +88,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
                   children: [
-                    Thumbnail('assets/images/bodyweight.jpg', 'Body Weight',
-                        '30m | High Intensity | Indoor/Outdoor', BodyWeight),
+                    Thumbnail(
+                        'assets/images/bodyweight.jpg',
+                        'Body Weight',
+                        '30m | High Intensity | Indoor/Outdoor',
+                        BodyWeight,
+                        BodyWeightTechniques),
                     Thumbnail(
                         'assets/images/weight-training.jpg',
                         'Weight Training',
                         '30m | High Intensity | Indoor/Outdoor',
-                        WeightTraining),
-                    Thumbnail('assets/images/abs.jpg', 'Abs Training',
-                        '30m | High Intensity | Indoor/Outdoor', AbsTraining),
-                    Thumbnail('assets/images/strength-weight.jpg', 'All In One',
-                        '30m | High Intensity | Indoor/Outdoor', Mixed),
+                        WeightTraining,
+                        WeightTechniques),
+                    Thumbnail(
+                        'assets/images/abs.jpg',
+                        'Abs Training',
+                        '30m | High Intensity | Indoor/Outdoor',
+                        AbsTraining,
+                        AbsTechnique),
+                    Thumbnail(
+                        'assets/images/strength-weight.jpg',
+                        'All In One',
+                        '30m | High Intensity | Indoor/Outdoor',
+                        Mixed,
+                        MixedTechniques),
                   ]),
             ),
           ],

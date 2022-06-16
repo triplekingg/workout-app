@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:workout/customCheckBox.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,18 +15,20 @@ class WorkoutScreen extends StatefulWidget {
   String url;
   String title;
   List<CustomCheckBox> customCheckBoxes;
-  WorkoutScreen(this.url, this.title, this.customCheckBoxes);
+  List<Image> images;
+  WorkoutScreen(this.url, this.title, this.customCheckBoxes, this.images);
 
   @override
   State<WorkoutScreen> createState() =>
-      WorkoutScreenState(url, title, customCheckBoxes);
+      WorkoutScreenState(url, title, customCheckBoxes, images);
 }
 
 class WorkoutScreenState extends State<WorkoutScreen> {
   String url;
   String title;
   List<CustomCheckBox> customCheckBoxes;
-  WorkoutScreenState(this.url, this.title, this.customCheckBoxes);
+  List<Image> images;
+  WorkoutScreenState(this.url, this.title, this.customCheckBoxes, this.images);
   bool isChecked = false;
 
   @override
@@ -59,13 +63,24 @@ class WorkoutScreenState extends State<WorkoutScreen> {
             Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Image.asset(
-                  url,
+                ImageSlideshow(
                   width: MediaQuery.of(context).size.width,
                   height: 230,
-                  fit: BoxFit.cover,
+                  initialPage: 0,
+                  indicatorColor: Colors.blue,
+                  indicatorBackgroundColor: Colors.grey,
+                  autoPlayInterval: null,
+                  isLoop: true,
+                  children: [for (var i in images) i],
                 ),
               ],
+
+              // Image.asset(
+              //   url,
+              //   width: MediaQuery.of(context).size.width,
+              //   height: 230,
+              //   fit: BoxFit.cover,
+              // ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
@@ -75,24 +90,8 @@ class WorkoutScreenState extends State<WorkoutScreen> {
                   Expanded(
                     child: Text(
                       'Class Name',
-                      // style: FlutterFlowTheme.of(context).title2,
                     ),
                   ),
-                  // CircularPercentIndicator(
-                  //   percent: 0.5,
-                  //   radius: 15,
-                  //   lineWidth: 24,
-                  //   animation: true,
-                  //   progressColor: Colors.indigo,
-                  //   backgroundColor: Color(0xFFF1F4F8),
-                  //   center: Text(
-                  //     '50%',
-                  //     style: TextStyle(
-                  //       fontFamily: 'Poppins',
-                  //       color: Colors.black,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
