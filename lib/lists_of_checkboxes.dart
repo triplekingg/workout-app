@@ -13,7 +13,7 @@ List<CustomCheckBox> BodyWeight = [
 List<CustomCheckBox> WeightTraining = [
   CustomCheckBox(false, 'Chest Press Machine', 'Chest Press Machine'),
   CustomCheckBox(false, 'Leg Press	', 'Leg Press	'),
-  CustomCheckBox(false, 'Lateral Raise Machine	', 'Lateral Raise Machine	'),
+  CustomCheckBox(false, 'Lateral Raise', 'Lateral Raise'),
   CustomCheckBox(
       false, 'Lat Pulldown or Seated Row', 'Lat Pulldown or Seated Row'),
   CustomCheckBox(false, 'Cable Pushdown', 'Cable Pushdown'),

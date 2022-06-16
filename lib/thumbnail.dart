@@ -8,9 +8,10 @@ class Thumbnail extends StatelessWidget {
   String description;
   List<CustomCheckBox> checkboxes;
   List<Image> images;
+  String details;
 
-  Thumbnail(
-      this.url, this.title, this.description, this.checkboxes, this.images);
+  Thumbnail(this.url, this.title, this.description, this.checkboxes,
+      this.images, this.details);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,8 @@ class Thumbnail extends StatelessWidget {
         onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    WorkoutScreen(url, title, this.checkboxes, this.images))),
+                builder: (context) => WorkoutScreen(url, title, this.checkboxes,
+                    this.images, this.description, this.details))),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 20),
           child: Container(

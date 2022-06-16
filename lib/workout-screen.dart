@@ -16,11 +16,14 @@ class WorkoutScreen extends StatefulWidget {
   String title;
   List<CustomCheckBox> customCheckBoxes;
   List<Image> images;
-  WorkoutScreen(this.url, this.title, this.customCheckBoxes, this.images);
+  String description;
+  String details;
+  WorkoutScreen(this.url, this.title, this.customCheckBoxes, this.images,
+      this.description, this.details);
 
   @override
-  State<WorkoutScreen> createState() =>
-      WorkoutScreenState(url, title, customCheckBoxes, images);
+  State<WorkoutScreen> createState() => WorkoutScreenState(
+      url, title, customCheckBoxes, images, description, this.details);
 }
 
 class WorkoutScreenState extends State<WorkoutScreen> {
@@ -28,7 +31,10 @@ class WorkoutScreenState extends State<WorkoutScreen> {
   String title;
   List<CustomCheckBox> customCheckBoxes;
   List<Image> images;
-  WorkoutScreenState(this.url, this.title, this.customCheckBoxes, this.images);
+  String description;
+  String details;
+  WorkoutScreenState(this.url, this.title, this.customCheckBoxes, this.images,
+      this.description, this.details);
   bool isChecked = false;
 
   @override
@@ -74,13 +80,6 @@ class WorkoutScreenState extends State<WorkoutScreen> {
                   children: [for (var i in images) i],
                 ),
               ],
-
-              // Image.asset(
-              //   url,
-              //   width: MediaQuery.of(context).size.width,
-              //   height: 230,
-              //   fit: BoxFit.cover,
-              // ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
@@ -89,7 +88,7 @@ class WorkoutScreenState extends State<WorkoutScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Class Name',
+                      details,
                     ),
                   ),
                 ],
