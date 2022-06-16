@@ -100,33 +100,7 @@ class WorkoutScreenState extends State<WorkoutScreen> {
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                children: [
-                  for (var i in customCheckBoxes) i
-                  // CheckboxListTile(
-                  //   title: Text('Blah'),
-                  //   value: isChecked,
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       isChecked = value!;
-                  //     });
-                  //     changeState();
-                  //   },
-                  // )
-                ]),
-            // Padding(
-            //   padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
-            //   child: Row(
-            //     mainAxisSize: MainAxisSize.max,
-            //     children: [
-            //       Expanded(
-            //         child: Text(
-            //           'The best of all 3 worlds, Row & Flow offers high intensity rowing and strength intervals followed by athletic based yoga sure to enhance flexible and clear the mind. Yoga mats are provided but bringing your own yoga mat is highly encouraged.',
-            //           // style: FlutterFlowTheme.of(context).bodyText2,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+                children: [for (var i in customCheckBoxes) i]),
           ],
         ),
       ),
